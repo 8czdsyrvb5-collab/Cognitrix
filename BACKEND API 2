@@ -1,0 +1,21 @@
+import { db } from "./db";
+import { generateAI } from "./ai";
+
+export async function handleMessage(userId: string, message: string) {
+  const history = await db.message.findMany({
+    where: { userId }
+  });
+
+  const context = history.map(m => `${m.role}: ${m.text}`).join("\n");
+
+  const reply = await generateAI(context, message);
+
+  await db.message.createMany({
+    data: [
+      { userId, role: "user", text: message },
+      { userId, role: "assistant", text: reply }
+    ]
+  });
+
+  return reply;
+}
