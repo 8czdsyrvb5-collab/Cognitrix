@@ -1,0 +1,17 @@
+import express from "express";
+import { handleMessage } from "./message";
+
+const app = express();
+app.use(express.json());
+
+app.post("/message", async (req, res) => {
+  const { message, userId } = req.body;
+
+  const reply = await handleMessage(userId, message);
+
+  res.json({ reply });
+});
+
+app.listen(3000, () => {
+  console.log("API running on 3000");
+});
