@@ -1,0 +1,10 @@
+# install dependencies
+npm install
+
+# run backend
+cd apps/api
+npm run dev
+
+# run frontend
+cd ../dashboard
+npm run dev
