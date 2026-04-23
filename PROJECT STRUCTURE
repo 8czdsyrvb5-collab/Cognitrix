@@ -1,0 +1,24 @@
+ai-saas-platform/
+├── apps/
+│   ├── api/
+│   │   ├── src/
+│   │   │   ├── index.ts
+│   │   │   ├── ai.ts
+│   │   │   ├── db.ts
+│   │   │   └── message.ts
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│
+│   ├── dashboard/
+│   │   ├── app/
+│   │   │   ├── page.tsx
+│   │   │   ├── dashboard/page.tsx
+│   │   │   ├── conversations/page.tsx
+│   │   ├── package.json
+│
+├── prisma/
+│   └── schema.prisma
+│
+├── package.json
+├── .env.example
+└── README.md
